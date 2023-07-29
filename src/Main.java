@@ -1,5 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        try {
+            AuthenticationValidator.checkAuthentication("loGin10_",
+                    "password", "password1");
+            System.out.println("Аутентификация пройдена успешно");
+
+        } catch (WrongLoginException | WrongPasswordException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
